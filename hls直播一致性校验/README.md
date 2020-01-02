@@ -22,7 +22,7 @@ port="ssh端口"
 sh sc_get_live_info.sh
 ```
 ##### 执行结束后，会在本路径生成各se排查结果，类似下面：
-![image][https://raw.githubusercontent.com/bluebell20/notification/master/screenshots/se_diff.png]
+![image](https://raw.githubusercontent.com/bluebell20/notification/master/screenshots/se_diff.png)
 ##### 查看各结果，若内容输出类似下图，则直播db正常，否则请联系片总处理：
 ```
 head -100 *_diff.txt
