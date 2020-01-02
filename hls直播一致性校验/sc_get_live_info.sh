@@ -1,10 +1,13 @@
 #!/bin/bash
+##############################################################################
+# sc_get_live_info version 0.2 Author: Levi <levi@fonsview.com>              #
+##############################################################################
 
 ########## Login parameter ############
-user="liuhaoran"
-passwd='FonsView2019%$#@!'
-su_passwd='#\$ER0fonsview'
-port="50000"
+user=""
+passwd=''
+su_passwd=''
+port=""
 
 sleep_per20query=0.1
 ssdir='/opt/fonsview/NE/ss'
