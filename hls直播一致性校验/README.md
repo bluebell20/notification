@@ -29,3 +29,6 @@ head -100 *_diff.txt
 ```
 ![image](https://raw.githubusercontent.com/bluebell20/notification/master/screenshots/head_info.png)
 
+### 注意：
+---
+##### 自动化脚本`sc_get_live_info.sh`只适用用于节点内ssh互通且账号密码相同的节点；若不符合上述情况，请使用`sc_get_live_info_manual.sh`，会生成`${location}_sc_sort.txt`，然后将生成的对应服务器的文件，跟`se_get_live_info.sh`传到各个se服务器，手动执行，查看结果。
