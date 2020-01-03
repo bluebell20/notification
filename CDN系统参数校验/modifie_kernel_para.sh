@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################################################################
-# Modifie_kernel_para version 0.1 Author: Levi <levi@fonsview.com>           #
+# Modifie_kernel_para version 0.2 Author: Levi <levi@fonsview.com>           #
 ##############################################################################
 
 # 判断操作系统版本
@@ -200,8 +200,14 @@ sysctl_a()
 				read -p "$question" answer
 				case $answer in
 					'yes' | 'y' )
-						sed -i "/^${i}/d" /etc/sysctl.conf
-						sed -i "\$a ${i} = ${sys_par[$i]}" /etc/sysctl.conf
+						if [ "$i" != "net.netfilter.nf_conntrack_buckets" ];then
+							sed -i "/^${i}/d" /etc/sysctl.conf
+							sed -i "\$a ${i} = ${sys_par[$i]}" /etc/sysctl.conf
+						else
+							sed -i "/^${i}/d" /etc/sysctl.conf
+							echo "${sys_par[$i]}" > /sys/module/nf_conntrack/parameters/hashsize
+							echo "options nf_conntrack hashsize=${sys_par[$i]}" > /etc/modprobe.d/nf_conntrack.conf
+						fi
 						;;
 					'no' | 'n' )
 						continue
