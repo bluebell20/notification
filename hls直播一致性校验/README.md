@@ -41,7 +41,7 @@ head -100 *_diff.txt
 
 ### 注意：
 ---
-##### 自动化脚本`sc_get_live_info.sh`只适用用于节点内ssh互通且账号密码相同的节点；若不符合上述情况，请使用`sc_get_live_info_manual.sh`，会生成`${location}_sc_sort.txt`，然后将生成的对应服务器的文件，跟`se_get_live_info.sh`传到各个se服务器，手动执行，查看结果。
+##### 自动化脚本`sc_get_live_info.sh`只适用用于节点内ssh互通的节点；若不符合上述情况，请使用`sc_get_live_info_manual.sh`，会生成`${location}_sc_sort.txt`，然后将生成的对应服务器的文件，跟`se_get_live_info.sh`传到各个se服务器，手动执行，查看结果。
 ### 历史版本：
 ---
 ##### Version0.3: 增加登陆管理配置，用于节点内登陆方式不同的节点；
