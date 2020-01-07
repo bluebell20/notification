@@ -4,10 +4,21 @@
 ##############################################################################
 
 ########## Login parameter ############
+# 定义登录方式,1代表登陆方式都相同，2代表登陆方式不同启用单独的登陆文件
+longin_mode=1
+
+# longin_mode=1时使用：
 user=""
 passwd=''
 su_passwd=''
 port=""
+
+# longin_mode=2时使用，脚本同路径编写host_info.txt;格式如下
+# location ip port user password su_password
+# 例：1-0-0-0 1.1.1.1 49721 fonsview FonsView!23+ hello123
+# 使用如下命令可以快速生成前两列
+# cat /opt/fonsview/NE/ss/data/proc/mng/nics |grep SESH |while read line;do location=`echo $line |awk '{print $1}'` ip=`echo $line |awk '{print $3}'|awk -F '(' '{print $1}'`; echo $location $ip ;done > host_info.txt
+
 
 sleep_per20query=0.1
 ssdir='/opt/fonsview/NE/ss'
@@ -84,6 +95,12 @@ for i in $all_location;
 for i in $all_location;
 	do
 		ip_addr=`cat /opt/fonsview/NE/ss/data/proc/mng/nics |grep $i |awk '{print $3}'|awk -F '(' '{print $1}'`
+		if [ $longin_mode == 2 ];then
+			port=`cat host_info.txt|grep $i |awk '{print $3}'`
+			user=`cat host_info.txt|grep $i |awk '{print $4}'`
+			passwd=`cat host_info.txt|grep $i |awk '{print $5}'`
+			su_passwd=`cat host_info.txt|grep $i |awk '{print $6}'`
+		fi
 		/usr/bin/expect << EOF
 		set timeout 20
 		spawn scp -P $port ${datadir}/${i}_sc_sort.txt se_get_live_info.sh $user@$ip_addr:/tmp
