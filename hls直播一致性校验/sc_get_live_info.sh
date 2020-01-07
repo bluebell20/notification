@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################################################################
-# sc_get_live_info version 0.2 Author: Levi <levi@fonsview.com>              #
+# sc_get_live_info version 0.3 Author: Levi <levi@fonsview.com>              #
 ##############################################################################
 
 ########## Login parameter ############
