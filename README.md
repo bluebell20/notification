@@ -13,7 +13,7 @@
 
 2. 单个文件下载
 
-   - github可预览文件，以下载`hls直播一致性校验/sc_get_live_info.sh`为例，进入预览界面后点击raw：
+   - 下载github可预览文件，以下载`hls直播一致性校验/sc_get_live_info.sh`为例，进入预览界面后点击raw：
 
      ![image](https://raw.githubusercontent.com/bluebell20/notification/master/screenshots/canview.png)
 
@@ -23,6 +23,6 @@
      curl 'https://raw.githubusercontent.com/bluebell20/notification/master/hls%E7%9B%B4%E6%92%AD%E4%B8%80%E8%87%B4%E6%80%A7%E6%A0%A1%E9%AA%8C/sc_get_live_info.sh' -O
      ```
      
-   - github不可预览文件，以下载`hls直播一致性校验/SS 查询hls直播一致性的技术通知.docx`为例，进入预览界面后直接点击Download下载：
+   - 下载github不可预览文件，以下载`hls直播一致性校验/SS 查询hls直播一致性的技术通知.docx`为例，进入预览界面后直接点击Download下载：
      ![image](https://raw.githubusercontent.com/bluebell20/notification/master/screenshots/canotview.png)   
      
