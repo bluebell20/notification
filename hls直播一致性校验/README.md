@@ -17,7 +17,7 @@ longin_mode=1
 
 # longin_mode=1时使用：
 user="ssh用户名"
-passwd='ssh密码’
+passwd='ssh密码'
 su_passwd='root密码'
 port="ssh端口"
 
