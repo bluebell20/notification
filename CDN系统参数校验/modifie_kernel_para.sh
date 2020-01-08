@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################################################################
-# Modifie_kernel_para version 0.2 Author: Levi <levi@fonsview.com>           #
+# Modifie_kernel_para version 0.3 Author: Levi <levi@fonsview.com>           #
 ##############################################################################
 
 # 判断操作系统版本
@@ -106,9 +106,9 @@ diff_values()
 {
 	if [ "$1" ];then
 		if [ "$1" == "$2" ];then
-			echo -e "$3" "\033[32mpass.\033[0m"
+			echo -e "$3" "current value is \"$1\",\033[32mpass.\033[0m"
 		else
-			echo -e "$3" "\033[31msuggest modify.\033[0m" The recommended value is "\033[31m\"$2\".\033[0m"
+			echo -e "$3" "current value is \"$1\",\033[31msuggest modify.\033[0m" The recommended value is "\033[31m\"$2\".\033[0m"
 		fi
 	else
 		echo -e There is no such parameter in the kernel "\033[31m\"$3\".\033[0m"
