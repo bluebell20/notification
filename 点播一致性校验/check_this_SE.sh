@@ -25,6 +25,21 @@ if [ -e ${nodeid}_err.txt ]; then
 	rm -f ${nodeid}_err.txt
 fi
 
+while read line;
+do
+	cut_no=`echo $line|awk '{print $4}'`
+	cut_line=`cat ${ssdata}/proc/fsio/inode/${cut_no}|head -1|awk -F ':| ' '{print $19}'`
+	if [ $cut_line ];then
+		if [ $cut_line == content ];then
+			cut_num=1
+			break
+		else
+			cut_num=2
+			break
+		fi
+	fi
+done < ${nodeid}.txt
+
 number=0
 #$pid $cid $line  $seglist
 while read line;
@@ -47,7 +62,11 @@ do
 		fi
 		if [ $n -eq 3 ];then 
 			segid=$i
-			secid=`cat ${ssdata}/proc/fsio/inode/${i}|head -1|awk -F ':| ' '{print $20}'`
+			if [ $cut_num -eq 1 ];then
+				secid=`cat ${ssdata}/proc/fsio/inode/${i}|head -1|awk -F ':| ' '{print $20}'`
+			elif [ $cut_num -eq 2 ];then
+				secid=`cat ${ssdata}/proc/fsio/inode/${i}|head -1|awk -F ':| ' '{print $22}'`
+			fi
 			if [ ${secid}x == x ]; then
 				echo "$pid $cid $contentid chanid $secid  segid_${i}_lost" >> ${nodeid}_err.txt
 				break;
