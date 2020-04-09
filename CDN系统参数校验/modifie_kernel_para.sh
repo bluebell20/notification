@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################################################################
-# Modifie_kernel_para version 0.3 Author: Levi <levi@fonsview.com>           #
+# Modifie_kernel_para version 0.4 Author: Levi <levi@fonsview.com>           #
 ##############################################################################
 
 # 判断操作系统版本
@@ -157,7 +157,7 @@ ulimit_a()
 	cp -n $limit_file ~/$(echo ${limit_file}|awk -F '/' '{print $NF}').bak
 	diff_values $core_file_size 0 "core_file_size"
 	if [ $core_file_size != 0 ]; then
-		read -p "$question" answer
+		read -p -e "$question" answer
 		case $answer in
 			'yes' | 'y' )
 				sed -i '/^\*.*core/d' $limit_file
@@ -172,7 +172,7 @@ ulimit_a()
 	fi
 	diff_values $open_files 204800 "open_files"
 	if [ $open_files != 204800 ]; then
-		read -p "$question" answer
+		read -p -e "$question" answer
 		case $answer in
 			'yes' | 'y' )
 				sed -i '/^\*.*nofile/d' $limit_file
@@ -197,7 +197,7 @@ sysctl_a()
 		diff_values "$para_value" "${sys_par[$i]}" "$i"
 		if [ "$para_value" ];then
 			if [ "$para_value" != "${sys_par[$i]}" ];then
-				read -p "$question" answer
+				read -p -e "$question" answer
 				case $answer in
 					'yes' | 'y' )
 						if [ "$i" != "net.netfilter.nf_conntrack_buckets" ];then
