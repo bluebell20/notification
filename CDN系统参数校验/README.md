@@ -18,7 +18,7 @@ sysctl -p
 ```
 ### 版本历史：
 ---
-Version 0.4: 当脚本询问是否执行时，键盘输入错误无法删除的问题；
+Version 0.4: 当脚本询问是否执行时，键盘输入错误无法删除的问题；  
 Version 0.3：屏幕打印增加当前值与建议值比较；  
 Version 0.2：解决net.netfilter.nf_conntrack_buckets无法修改的问题；  
 Version 0.1：第一版。
