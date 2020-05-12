@@ -40,7 +40,7 @@ ha_state=\`echo \$ha_state | sed s/[[:space:]]//g\`
 
 if [ "\$ha_state" != "ACTIVE" ]; then
     /opt/fonsview/bin/db_checkpoint -h /opt/fonsview/NE/ss/data/db -1
-	/opt/fonsview/bin/db_hotbackup -h /opt/fonsview/NE/ss/data/db -b \$back_dir/db_back_\$today
+    /opt/fonsview/bin/db_hotbackup -h /opt/fonsview/NE/ss/data/db -b \$back_dir/db_back_\$today
 else
     cat /opt/fonsview/NE/ss/data/proc/svdb/proglist > \$back_dir/proglist_\$today
     cat /opt/fonsview/NE/ss/data/proc/svdb/hlschanlist > \$back_dir/hlschanlist_\$today
