@@ -60,7 +60,7 @@ do
 			contentid=$i
 			continue
 		fi
-		if [ $n -eq 3 ];then 
+		if [ $n -ge 3 ];then 
 			segid=$i
 			if [ $cut_num -eq 1 ];then
 				secid=`cat ${ssdata}/proc/fsio/inode/${i}|head -1|awk -F ':| ' '{print $20}'`
